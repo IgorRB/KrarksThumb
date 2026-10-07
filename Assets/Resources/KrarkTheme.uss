@@ -1,0 +1,388 @@
+/* ==========================================================================
+   Krark's Thumb - theme
+   Palette: midnight violet, antique gold, parchment text, red-mana accents.
+   ========================================================================== */
+
+.app {
+    position: absolute;
+    left: 0; right: 0; top: 0; bottom: 0;
+    background-color: rgb(13, 11, 19);
+    /* top / bottom breathing room; safe-area insets (status bar, notch) are added on top of this from code */
+    padding: 6px 14px 30px 14px;
+    color: rgb(236, 228, 210);
+    font-size: 15px;
+}
+
+/* ---------------------------------------------------------------- Header */
+.header { flex-direction: row; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-shrink: 0; }
+.title { font-size: 27px; -unity-font-style: bold; color: rgb(244, 214, 128); letter-spacing: 2px; flex-shrink: 1; }
+.tabs { flex-direction: row; flex-shrink: 0; }
+.header-rule { height: 2px; background-color: rgba(214, 174, 84, 0.55); margin-bottom: 10px; flex-shrink: 0; }
+
+.view { flex-direction: row; flex-grow: 1; flex-shrink: 1; min-height: 0; }
+.hidden { display: none; }
+
+/* Narrow / portrait screens: stack the two columns vertically */
+.portrait .view { flex-direction: column; }
+.portrait .col-main { flex-grow: 1; flex-basis: 0; }
+.portrait .col-side { flex-grow: 0; flex-shrink: 0; flex-basis: auto; }
+.portrait .res-row { margin-bottom: 0; }
+.portrait .res-value { font-size: 26px; }
+.portrait .title { font-size: 22px; }
+
+/* ---------------------------------------------------------------- Panels */
+.panel {
+    background-color: rgb(25, 22, 36);
+    border-width: 1px;
+    border-color: rgba(214, 174, 84, 0.42);
+    border-radius: 10px;
+    padding: 12px;
+    margin: 4px;
+    min-height: 0;
+}
+.panel-title { font-size: 19px; -unity-font-style: bold; margin-bottom: 8px; color: rgb(244, 214, 128); letter-spacing: 1px; }
+.panel-head { flex-direction: row; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-shrink: 0; }
+.col-main { flex-grow: 3; flex-basis: 0; }
+.col-side { flex-grow: 2; flex-basis: 0; min-width: 0; }
+.col-side > .panel { flex-grow: 1; flex-basis: 0; min-height: 200px; }
+.col-side > .res-panel { flex-grow: 0; flex-shrink: 0; flex-basis: auto; }
+.fill { flex-grow: 1; min-height: 0; }
+
+/* --------------------------------------------------------------- Buttons */
+Button {
+    border-width: 1px;
+    border-color: rgba(214, 174, 84, 0.38);
+    border-radius: 7px;
+    background-color: rgb(48, 43, 66);
+    color: rgb(240, 232, 212);
+    padding: 7px 14px;
+    margin: 2px;
+    font-size: 15px;
+    -unity-font-style: bold;
+}
+Button:hover { background-color: rgb(70, 62, 96); border-color: rgba(244, 214, 128, 0.8); }
+Button:active { background-color: rgb(92, 82, 124); }
+Button:disabled { opacity: 0.35; }
+
+.tab { padding: 11px 24px; font-size: 18px; margin-left: 6px; border-radius: 9px; }
+.tab.active { background-color: rgb(150, 38, 32); border-color: rgb(244, 214, 128); border-width: 2px; }
+.tab.active:hover { background-color: rgb(176, 48, 40); }
+
+.btn-cast { background-color: rgb(160, 38, 32); border-color: rgb(244, 214, 128); border-width: 2px; border-radius: 10px; font-size: 20px; padding: 10px 14px; letter-spacing: 1px; }
+.btn-cast:hover { background-color: rgb(196, 56, 46); }
+.btn-cast:active, .btn-cast:focus { background-color: rgb(130, 28, 26); border-color: rgb(244, 214, 128); }
+.btn-ok { background-color: rgb(34, 108, 74); }
+.btn-ok:hover { background-color: rgb(46, 138, 94); }
+.btn-warn { background-color: rgb(140, 100, 26); }
+.btn-warn:hover { background-color: rgb(176, 126, 34); }
+.btn-danger { background-color: rgb(128, 36, 44); }
+.btn-danger:hover { background-color: rgb(168, 50, 58); }
+.btn-small { padding: 3px 10px; font-size: 14px; }
+
+/* Delete / remove: a red disc with a cross */
+.btn-delete {
+    width: 32px; height: 32px;
+    padding: 0;
+    margin: 2px 2px 2px 6px;
+    border-radius: 16px;
+    background-color: rgb(168, 36, 46);
+    border-color: rgb(244, 128, 116);
+    font-size: 21px;
+    -unity-text-align: middle-center;
+    flex-shrink: 0;
+}
+.btn-delete:hover { background-color: rgb(204, 52, 62); border-color: rgb(255, 170, 160); }
+.btn-delete:active { background-color: rgb(130, 26, 36); }
+.btn-delete-small { width: 26px; height: 26px; border-radius: 13px; font-size: 17px; margin-left: 4px; }
+.btn-round { width: 38px; height: 38px; padding: 0; font-size: 22px; border-radius: 19px; -unity-text-align: middle-center; }
+
+/* "Counter target" selection mode */
+.btn-active, .btn-active:hover { background-color: rgb(224, 160, 40); color: rgb(24, 18, 8); }
+.hint-active { color: rgb(244, 214, 128); -unity-font-style: bold; }
+
+/* ---------------------------------------------------------- Form controls */
+.unity-base-field__input,
+.unity-base-text-field__input,
+.unity-base-popup-field__input {
+    background-color: rgb(14, 12, 22);
+    border-width: 1px;
+    border-color: rgba(214, 174, 84, 0.4);
+    border-radius: 5px;
+    color: rgb(240, 232, 212);
+    padding: 4px 6px;
+    min-height: 30px;
+}
+.unity-base-popup-field__text { color: rgb(240, 232, 212); }
+TextField, IntegerField, DropdownField { margin: 2px; }
+
+.row { flex-direction: row; align-items: center; }
+
+/* Stack header: slim info line, then Cast Spell and the three action buttons on a single row */
+.stack-info { flex-direction: row; align-items: center; margin-bottom: 6px; flex-shrink: 0; }
+.stack-title { margin-bottom: 0; margin-right: 10px; flex-shrink: 0; }
+.stack-hint { flex-grow: 1; flex-shrink: 1; font-size: 13px; color: rgb(160, 152, 176); white-space: normal; }
+.stack-controls { flex-direction: row; align-items: stretch; margin-bottom: 8px; flex-shrink: 0; }
+.stack-controls .btn-cast { flex-shrink: 0; margin-left: 0; }
+.stack-controls .btn-compact { flex-grow: 1; flex-basis: 0; min-width: 0; }
+.stack-controls Button.btn-compact, .stack-controls .hold-wrap > Button { font-size: 14px; padding: 6px 4px; -unity-text-align: middle-center; }
+.stack-controls .hold-wrap { margin: 2px; }
+.stack-controls .hold-wrap > Button { flex-grow: 1; }
+
+/* ------------------------------------------------------------ Scrollbars
+   Minimal: no arrow buttons, just a faint track and a slim gold handle. */
+.app .unity-scroller__low-button,
+.app .unity-scroller__high-button { display: none; }
+
+.app .unity-scroll-view__vertical-scroller { width: 10px; margin-left: 6px; background-color: transparent; border-width: 0; }
+.app .unity-scroll-view__horizontal-scroller { height: 10px; margin-top: 6px; background-color: transparent; border-width: 0; }
+.app .unity-scroller__slider { margin: 0; padding: 0; }
+/* undo the generic form-field frame (border, padding, min-height) that would otherwise wrap the track */
+.app .unity-scroller .unity-base-field__input,
+.app .unity-scroller .unity-base-slider__input,
+.app .unity-scroller .unity-base-slider__drag-container {
+    background-color: transparent;
+    border-width: 0;
+    border-radius: 0;
+    padding: 0;
+    margin: 0;
+    min-height: 0;
+}
+/* Fixed geometry for the 10px vertical bar: a thin rail down the middle with a slightly wider handle on top */
+.app .unity-scroll-view__vertical-scroller .unity-base-slider__input,
+.app .unity-scroll-view__vertical-scroller .unity-base-slider__drag-container {
+    width: 10px;
+    min-width: 0;
+    max-width: 10px;
+}
+.app .unity-scroll-view__vertical-scroller .unity-base-slider__tracker {
+    position: absolute;
+    left: 4px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    border-radius: 1px;
+    background-color: rgba(214, 174, 84, 0.22);
+}
+.app .unity-scroll-view__vertical-scroller .unity-base-slider__dragger {
+    left: 2px;
+    width: 6px;
+    margin: 0;
+}
+.app .unity-scroll-view__horizontal-scroller .unity-base-slider__dragger { height: 6px; margin: 2px 0 0 0; }
+
+.app .unity-scroller .unity-base-slider__tracker {
+    background-color: rgba(214, 174, 84, 0.10);
+    border-width: 0;
+    border-radius: 5px;
+}
+.app .unity-scroller .unity-base-slider__dragger {
+    background-color: rgba(214, 174, 84, 0.58);
+    border-width: 0;
+    border-radius: 5px;
+}
+.app .unity-scroller .unity-base-slider__dragger:hover { background-color: rgba(244, 214, 128, 0.85); }
+.app .unity-scroller .unity-base-slider__dragger:active { background-color: rgb(244, 214, 128); }
+.app .unity-scroller .unity-base-slider__dragger-border { display: none; }
+
+/* ----------------------------------------------------------------- Stack */
+.empty { color: rgb(130, 122, 146); -unity-font-style: italic; padding: 12px; }
+.card {
+    background-color: rgb(37, 33, 52);
+    border-radius: 9px;
+    border-left-width: 6px;
+    border-left-color: rgb(130, 122, 146);
+    padding: 8px 10px;
+    margin-bottom: 6px;
+    flex-shrink: 0;
+    overflow: hidden;
+}
+.card.spell { border-left-color: rgb(100, 156, 232); }
+.card.copy { border-left-color: rgb(170, 116, 222); }
+.card.trigger { border-left-color: rgb(224, 150, 50); }
+.card.top { background-color: rgb(54, 38, 40); border-width: 2px; border-left-width: 6px; border-color: rgb(226, 88, 68); }
+.card.targetable { border-width: 2px; border-left-width: 6px; border-color: rgb(244, 214, 128); }
+.card.targetable:hover { background-color: rgb(78, 66, 40); }
+.card-head { flex-direction: row; justify-content: space-between; align-items: center; }
+.card-title { -unity-font-style: bold; font-size: 17px; flex-shrink: 1; min-width: 0; white-space: normal; color: rgb(246, 238, 218); }
+.card-line { color: rgb(204, 196, 214); font-size: 14px; white-space: normal; }
+.card-source { color: rgb(150, 142, 166); font-size: 12px; margin-bottom: 2px; }
+
+.badge { font-size: 12px; color: rgb(20, 16, 28); background-color: rgb(160, 152, 176); border-radius: 8px; padding: 1px 8px; margin-left: 6px; flex-shrink: 0; }
+.badge.top { background-color: rgb(226, 88, 68); color: white; }
+.badge.spell { background-color: rgb(100, 156, 232); }
+.badge.copy { background-color: rgb(170, 116, 222); }
+.badge.trigger { background-color: rgb(224, 150, 50); }
+.badge.thumb { background-color: rgb(244, 214, 128); color: rgb(40, 28, 8); margin-left: 10px; }
+
+/* Krark artwork behind his triggers: right aligned, slightly transparent, fading into the card colour */
+.art {
+    position: absolute;
+    right: 0; top: 0; bottom: 0;
+    width: 62%;
+    background-image: url("/Assets/Sprites/Krark.png");
+    background-size: cover;
+    background-position: right center;
+    background-repeat: no-repeat;
+    -unity-background-image-tint-color: rgba(255, 255, 255, 0.5);
+}
+.art-fade {
+    position: absolute;
+    right: 0; top: 0; bottom: 0;
+    width: 62%;
+    background-image: url("/Assets/Resources/UI/fade.png");
+    background-size: 100% 100%;
+    -unity-background-image-tint-color: rgb(37, 33, 52);
+}
+.card.top .art-fade { -unity-background-image-tint-color: rgb(54, 38, 40); }
+.card.targetable .art-fade { -unity-background-image-tint-color: rgb(37, 33, 52); }
+
+/* ------------------------------------------------------------- Resources */
+.res-row { flex-direction: row; align-items: center; justify-content: space-between; margin-bottom: 6px; }
+.res-label { font-size: 17px; flex-grow: 1; }
+.res-value { font-size: 30px; -unity-font-style: bold; min-width: 56px; -unity-text-align: middle-center; }
+.res-treasure { color: rgb(244, 206, 84); }
+.res-red { color: rgb(240, 98, 76); }
+.res-storm { color: rgb(130, 190, 255); }
+.pip { width: 15px; height: 15px; border-radius: 8px; margin-right: 9px; border-width: 1px; border-color: rgba(0, 0, 0, 0.55); flex-shrink: 0; }
+.pip-treasure { background-color: rgb(236, 190, 58); }
+.pip-red { background-color: rgb(214, 66, 50); }
+.pip-storm { background-color: rgb(100, 160, 236); }
+.stats { color: rgb(160, 152, 176); font-size: 14px; white-space: normal; margin-top: 4px; margin-bottom: 6px; }
+
+/* ------------------------------------------------------------------- Log */
+.log-line { font-size: 14px; white-space: normal; margin-bottom: 3px; color: rgb(206, 200, 216); }
+.log-win { color: rgb(116, 224, 146); }
+.log-lose { color: rgb(244, 128, 116); }
+.log-resource { color: rgb(244, 210, 106); }
+.log-damage { color: rgb(255, 156, 96); }
+.log-stack { color: rgb(156, 196, 255); }
+
+/* ------------------------------------------------- Hold-to-resolve button */
+.hold-wrap { margin: 2px; border-radius: 7px; overflow: hidden; flex-shrink: 0; }
+.hold-wrap > Button { margin: 0; }
+.hold-fill {
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 0;
+    background-color: rgba(255, 255, 255, 0.32);
+}
+
+/* -------------------------------------------------------------- Pop-ups */
+.overlay {
+    position: absolute;
+    left: 0; right: 0; top: 0; bottom: 0;
+    background-color: rgba(6, 5, 10, 0.78);
+    align-items: center;
+    justify-content: center;
+}
+.balloon {
+    width: 86%;
+    max-width: 560px;
+    background-color: rgb(26, 22, 38);
+    border-width: 2px;
+    border-color: rgb(244, 214, 128);
+    border-radius: 16px;
+    padding: 16px;
+}
+.balloon-title { font-size: 23px; -unity-font-style: bold; color: rgb(244, 214, 128); margin-bottom: 4px; letter-spacing: 1px; }
+.balloon-text { font-size: 15px; color: rgb(206, 200, 216); white-space: normal; margin-bottom: 12px; }
+.coins { justify-content: space-between; }
+.coin-btn { flex-grow: 1; flex-basis: 0; flex-direction: column; align-items: center; padding: 12px 8px; margin: 4px; border-radius: 12px; }
+.coin-win { background-color: rgb(34, 104, 70); }
+.coin-win:hover { background-color: rgb(48, 138, 92); }
+.coin-lose { background-color: rgb(124, 40, 44); }
+.coin-lose:hover { background-color: rgb(164, 56, 60); }
+.coin-name { font-size: 14px; color: rgb(214, 208, 226); }
+.coin-result { font-size: 28px; -unity-font-style: bold; color: white; }
+.coin-effects { font-size: 13px; color: rgb(230, 226, 240); white-space: normal; -unity-text-align: middle-center; }
+
+.results { max-height: 86%; }
+.results-scroll { max-height: 560px; margin-bottom: 10px; flex-shrink: 1; }
+.sum-head { color: rgb(244, 214, 128); -unity-font-style: bold; font-size: 15px; margin-top: 8px; margin-bottom: 2px; letter-spacing: 1px; }
+.sum-row { flex-direction: row; justify-content: space-between; margin-bottom: 1px; }
+.sum-label { color: rgb(206, 200, 216); font-size: 14px; flex-shrink: 1; white-space: normal; }
+.sum-value { color: white; -unity-font-style: bold; font-size: 14px; margin-left: 12px; white-space: normal; -unity-text-align: upper-right; flex-shrink: 1; }
+
+/* Floating result text shown when a Krark flip resolves (animated from code) */
+.toast-layer { position: absolute; left: 0; right: 0; top: 26%; align-items: center; }
+.toast {
+    min-width: 260px;
+    align-items: center;
+    background-color: rgba(20, 16, 32, 0.95);
+    border-width: 2px;
+    border-radius: 16px;
+    padding: 8px 26px 10px 26px;
+    margin-bottom: 8px;
+}
+.toast-win { border-color: rgb(116, 224, 146); }
+.toast-lose { border-color: rgb(244, 128, 116); }
+.toast-source { font-size: 12px; color: rgb(160, 152, 176); }
+.toast-result { font-size: 36px; -unity-font-style: bold; letter-spacing: 4px; }
+.toast-win .toast-result { color: rgb(116, 224, 146); }
+.toast-lose .toast-result { color: rgb(244, 128, 116); }
+.toast-effects { font-size: 16px; color: rgb(240, 232, 212); white-space: normal; -unity-text-align: middle-center; }
+.toast-note { font-size: 12px; color: rgb(244, 214, 128); margin-top: 3px; white-space: normal; -unity-text-align: middle-center; }
+
+/* Floating input (touch devices): a centered card shown above the virtual keyboard */
+.input-overlay { background-color: rgba(6, 5, 10, 0.62); }
+.input-balloon { width: 92%; max-width: 560px; }
+.big-input { margin: 4px 0 12px 0; }
+.big-input .unity-base-text-field__input { font-size: 22px; min-height: 48px; padding: 8px 10px; }
+
+/* ----------------------------------------------------------------- Board */
+.form-panel { align-self: flex-start; }
+.portrait .form-panel { align-self: stretch; }
+.draft-scroll { max-height: 190px; flex-shrink: 0; }
+
+/* Quantity controls sit on a dark pill so they stay readable over the artwork */
+.qty-box { background-color: rgba(16, 13, 24, 0.82); border-radius: 24px; padding: 2px 4px; border-width: 1px; border-color: rgba(214, 174, 84, 0.35); flex-shrink: 0; margin-left: 8px; }
+.qty { font-size: 20px; -unity-font-style: bold; min-width: 34px; -unity-text-align: middle-center; }
+.cond { font-size: 13px; color: rgb(232, 168, 68); }
+.form-row { flex-direction: row; align-items: center; margin-bottom: 6px; }
+.form-label { min-width: 80px; }
+.hint { color: rgb(244, 128, 116); font-size: 13px; }
+.effect-row { flex-direction: row; align-items: center; background-color: rgb(37, 33, 52); border-radius: 7px; padding: 4px 6px; margin-bottom: 4px; flex-shrink: 0; }
+.effect-row > * { margin-right: 6px; }
+.small-label { color: rgb(160, 152, 176); font-size: 13px; }
+.grow { flex-grow: 1; }
+
+/* Krark's Thumb banner with a custom switch */
+.thumb-banner {
+    flex-direction: row;
+    align-items: center;
+    background-color: rgb(30, 26, 44);
+    border-width: 1px;
+    border-color: rgba(214, 174, 84, 0.4);
+    border-radius: 11px;
+    padding: 10px 12px;
+    margin-bottom: 10px;
+    flex-shrink: 0;
+}
+.thumb-banner.on { background-color: rgb(52, 38, 34); border-width: 2px; border-color: rgb(244, 214, 128); }
+.thumb-icon {
+    width: 50px; height: 50px;
+    border-radius: 25px;
+    border-width: 2px;
+    border-color: rgba(214, 174, 84, 0.6);
+    background-image: url("/Assets/Sprites/KrarksThumb.png");
+    background-size: cover;
+    background-position: center center;
+    -unity-background-image-tint-color: rgba(255, 255, 255, 0.55);
+    flex-shrink: 0;
+}
+.thumb-banner.on .thumb-icon { border-color: rgb(244, 214, 128); -unity-background-image-tint-color: rgb(255, 255, 255); }
+.thumb-text { flex-grow: 1; flex-shrink: 1; margin-left: 12px; margin-right: 10px; }
+.thumb-name { font-size: 18px; -unity-font-style: bold; color: rgb(244, 214, 128); letter-spacing: 1px; }
+.thumb-desc { font-size: 13px; color: rgb(170, 162, 186); white-space: normal; }
+.thumb-banner.on .thumb-desc { color: rgb(226, 214, 190); }
+.switch-track {
+    width: 64px; height: 34px;
+    border-radius: 17px;
+    background-color: rgb(52, 46, 70);
+    border-width: 2px;
+    border-color: rgba(214, 174, 84, 0.45);
+    flex-shrink: 0;
+}
+.switch-knob { position: absolute; left: 3px; top: 3px; width: 24px; height: 24px; border-radius: 12px; background-color: rgb(150, 142, 166); }
+.switch-track.on { background-color: rgb(150, 102, 22); border-color: rgb(244, 214, 128); }
+.switch-track.on .switch-knob { left: 33px; background-color: rgb(255, 232, 160); }
